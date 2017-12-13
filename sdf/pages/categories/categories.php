@@ -9,7 +9,7 @@
 			<div class='container'>
 
 
-				<div class='row '>
+				<div class='row  border'>
 					<!-- filters -->
 					<div class='col-xs-3 hidden-xs'>
 						<!-- price -->
@@ -52,7 +52,18 @@
 					<!-- ***filters -->
 
 					<!-- Kurti Display -->
-					<div class='col-xs-9 '>
+					<div class='col-xs-9 borderr ' >
+						<!-- for xs screen -->
+						<div class='row border'>
+							<div class='col-xs-6'>
+								<button class='btn btn-defalut'>FILTER</button>
+							</div>
+							<div class='col-xs-6'>
+									<button class='btn btn-defalut'>SORT BY</button>
+								</div>
+						</div>
+
+						<!-- ***for xs screen -->
 
 						<!-- right side filters just above kurtis -->
 						<div class='row hidden-xs'>
@@ -158,6 +169,7 @@
 						<!-- ***select options for 6options -->
 
 						</div>
+						<!-- ***right side filters just above kurtis -->
 
 						<div class='row'>
 							<table style='width:100%;'>
