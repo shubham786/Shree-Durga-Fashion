@@ -24,6 +24,16 @@ rootModule.controller('c_categories', function ($scope, $location, s_http, $http
 
     $scope.optionsValue;
 
+    $(window).resize(function() {
+        var wWidth =  $(window).width();
+        if(wWidth <768){
+            console.log('hi');  
+            document.getElementById('strech').style.width='100%';
+        }else{
+            document.getElementById('strech').style.width='';
+        }
+      });
+
     s_http.s_http_fun(user_lgn_in_dtl_obj, function (resp) {
         console.log('resp.data.data', resp.data.data);
 //        $rootScope.kurti_display = resp.data.data;

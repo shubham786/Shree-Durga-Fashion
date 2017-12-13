@@ -52,9 +52,9 @@
 					<!-- ***filters -->
 
 					<!-- Kurti Display -->
-					<div class='col-xs-9 borderr ' >
+					<div class='col-xs-9 borderr ' id='strech' >
 						<!-- for xs screen -->
-						<div class='row border'>
+						<div class='row border visible-xs'>
 							<div class='col-xs-6'>
 								<button class='btn btn-defalut'>FILTER</button>
 							</div>
@@ -171,10 +171,10 @@
 						</div>
 						<!-- ***right side filters just above kurtis -->
 
-						<div class='row'>
-							<table style='width:100%;'>
+						<div class='row borderb'>
+							<table style='width:100%;' class='text-center;'>
 
-								<tr ng-repeat="kd in data.kurti_display" class='col-xs-12 col-sm-6 col-md-4 col-lg-3 ' style='padding:20px;'>
+								<tr ng-repeat="kd in data.kurti_display" class='col-xs-6 col-sm-6 col-md-4 col-lg-3 ' style='padding:20px;'>
 									<div style=''>
 										<td class=' text-center emphasize ' ng-click='detailed_prod(kd.id_kurti)' style='cursor:pointer;background-color:white;border-radius:10px;'>
 											<div class='' style='border:1px solid gray;border-radius:0px;box-shadow: 1px 1px 1px #888888;'>
