@@ -1,0 +1,41 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  .content {
+    min-height: 100%;
+  }
+  .content-inside {
+    padding: 20px;
+    padding-bottom: 50px;
+  }
+  .footer {
+    height: 50px;
+    margin-top: -50px;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  body {
+    font: 16px Sans-Serif;
+  }
+  h1 {
+    margin: 0 0 20px 0;
+  }
+  p {
+    margin: 20px 0 0 0;
+  }
+  footer {
+    background: #42A5F5;
+    color: white;
+    line-height: 50px;
+    padding: 0 20px;
+  }

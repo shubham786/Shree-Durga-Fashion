@@ -1,0 +1,20 @@
+@font-face { font-family: Delicious; src: url('./../include/fonts/hinglish.ttf'); } 
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    
+  }
+
+  .bodyBG{
+    background: url('/sdf/images/website/misc/360.jpg');
+    
+    
+    
+    z-index:-1;
+    
+  }
+  
+
+  

@@ -1,0 +1,59 @@
+.crs_ptr{
+    cursor: pointer;
+}
+
+.bgClrGreenish{
+    background-color: #1DBC99;
+    color:white;
+}
+
+.cstmBtn{
+    width:170px;
+    height:40px;
+    border-radius: 2px;
+    font-size:18px;
+    border:none;
+}
+.size_btn{
+    background-color: #fff;
+    border: 1px solid #282c3f;
+    border-radius: 50px;
+    padding-top: 5px;
+    padding-left: 0px;   
+    width: 42px;
+    height: 42px;
+    font-size:20px;
+    text-align: center;
+    margin-top: 14px;
+    margin-right: 6px;
+    display:inline-block;
+    cursor: pointer;
+    color: #282c3f;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    
+}
+.size_btn:hover{
+    background-color: #282c3f;
+    color:#fff;
+
+}
+.selected_sizes{
+    background-color: #282c3f;
+    color:#fff;
+}
+.not_sel_sizes{
+    background-color: #fff;
+    color:#282c3f;
+}
+.some_class{
+color:lightblue;
+}
+
+
+.dtlItmName{
+    font-size: 18px;
+    font-weight: 400;
+    color:#a8a3a3;
+}

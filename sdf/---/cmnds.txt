@@ -1,0 +1,6 @@
+$query = "INSERT INTO cus(email,pass) VALUES('some_email_id_3','some_password_3')";
+UPDATE cus SET email='myupdated_email_id' WHERE id_cus=1;
+$query="SELECT * FROM cus WHERE email='shubhamsengar88@gmail.com' and pass='somepass'";
+
+SELECT COUNT(*) FROM cus WHERE email= 'sampleemail@gmail.com'
+$query = 'INSERT INTO cus(email,pass) values('."'".$received->email."','".$received->pass."')";

@@ -1,0 +1,21 @@
+1).server side login form validations.
+2).email validation in forgot password.
+3).dashboard for db status,...
+4). give unique status to 'email' in 'cus' table.
+5).Images folder settlement.
+6).Multiple colors functioality in detalied page.
+7).Per item user feedback.
+8).Reorder Level(units in stock, units on order).
+9).Supercool dashboard.
+10).Trim data before sending to server.
+11).Increase capacity of columns.
+12).Update kurti details.
+13).Failure in password updation, db table N appropriate actions.
+
+
+shubhamsengar88@gmail.com
+This is my number. But I am unable to re-login as it says, we are unable to verify you, even after sending OTP. Please help me recover my account ASAP, as I have to produce trip bills to my company.
+
+
+----------------versions----------------
+php:7.1.6(latest)	 

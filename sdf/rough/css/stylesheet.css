@@ -1,0 +1,4 @@
+.image:hover + .imagebig{
+    width:200px;
+    
+}

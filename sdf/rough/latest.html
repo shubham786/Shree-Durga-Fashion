@@ -1,0 +1,304 @@
+<html>
+
+<head>
+    <style type='text/css'>
+        /*Some CSS*/
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .magnify {
+            width: 300px;
+            height: 300px;
+            cursor: crosshair;
+            position: relative;
+            border: 2px red solid;
+        }
+        /*Lets create the magnifying glass*/
+
+        .zoom {
+            width: 300px;
+            position: relative;
+            height: 300px;
+            border: 4px dashed yellow;
+        }
+
+        .img2 {
+            position: absolute;
+        }
+
+        .large {
+            width: 500px;
+            height: 500px;
+            top: 0px;
+            position: absolute;
+            margin-left: 0px;
+            border: 2px dashed orange;
+            background-color: rgba(20, 30, 90, 1);
+            /*Multiple box shadows to achieve the glass effect*/
+            /*hide the glass by default*/
+            display: none;
+        }
+        /*To solve overlap bug at the edges during magnification*/
+
+        .small {
+            display: block;
+        }
+    </style>
+    //<script src='../include/jquery/jquery-3.2.1.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var native_width = 0;
+            var native_height = 0;
+            $(".large").css("background", "url('" + $(".small").attr("src") + "') no-repeat");
+            $(".large").css("background-size", "164% 164%");
+            $('.img2').css("background-image", "url('../images/products/kurtis/1/1.jpg')");
+
+
+            // $(".img2").css("background", "url('" + $(".small").attr("src") + "') no-repeat");
+            $(".large").css("left", "800px");
+            //$(".zoom").css("background-size", "114% 104%");
+
+
+            $(".zoom").mousemove(function (e) {
+
+
+                //When the user hovers on the image, the script will first calculate
+                //the native dimensions if they don't exist. Only after the native dimensions
+                //are available, the script will show the zoomed version.
+                if (!native_width && !native_height) {
+                    //This will create a new image object with the same image as that in .small
+                    //We cannot directly get the dimensions from .small because of the 
+                    //width specified to 200px in the html. To get the actual dimensions we have
+                    //created this image object.
+                    var image_object = new Image();
+                    image_object.src = $(".img2").attr("src");
+
+                    //This code is wrapped in the .load function which is important.
+                    //width and height of the object would return 0 if accessed before 
+                    //the image gets loaded.
+                    native_width = image_object.width;
+                    native_height = image_object.height;
+                    console.log(native_height + 'and' + native_width);
+
+                }
+                else {
+
+                    //x/y coordinates of the mouse
+                    //This is the position of .magnify with respect to the document.
+                    var magnify_offset = $(this).offset();
+                    //We will deduct the positions of .magnify from the mouse positions with
+                    //respect to the document to get the mouse positions with respect to the 
+                    //container(.magnify)
+                    var mx = e.pageX - magnify_offset.left;
+                    var my = e.pageY - magnify_offset.top;
+
+                    //Finally the code to fade out the glass if the mouse is outside the container
+                    if (mx < $(this).width() && my < $(this).height() && mx > 0 && my > 0) {
+
+                        //$(".zoom").fadeIn(10);
+                        $('.img2').css("background-image", "url('../images/products/kurtis/1/1.jpg')");
+                        $(".img2").attr("src", "");
+                        $(".img2").css("background-size", "210% 210%");
+                        $(".img2").css("background-position", "0px 0px");
+
+
+
+                    }
+                    else {
+                        console.log('out');
+                        //console.log($(".img2").attr("src"));
+                        //                        $(".zoom").fadeOut(10);
+                        //../images/products/kurtis/1/3.jpg
+                        // $(".img2").css("width","100%");
+                        //$(".img2").css("height","100%");
+                        $('.img2').css("background-image", "url('../images/products/kurtis/1/2.jpg')");
+                        console.log($('.img2').css("background-image"));
+                        // $(".img2").css("background-size","100% 100%");
+                        ////'width:300px;height:300px;border:5px solid yellow;position:relative;background-image:url("../images/products/kurtis/1/1.jpg");background-position:0px 0px;background-repeat:no-repeat'
+                        // $(".img2").css("background-repeat","no-repeat");
+                        //$(".img2").css("background-position","0px 0px");
+
+                        //style=';position:relative
+                        // $(".img2").attr("src","http://d3gyiijzpk1c44.cloudfront.net/upload/product_photos/base/0/46/201/big2.3066348.1.jpg");
+
+
+
+
+                    }
+                    if ($(".img2").is(":visible")) {
+                        console.log("--");
+                        //The background position of .large will be changed according to the position
+                        //of the mouse over the .small image. So we will get the ratio of the pixel
+                        //under the mouse pointer with respect to the image and use that to position the 
+                        //large image inside the magnifying glass
+                        /*
+                         if(mx>=($(".small").width()/2) && my >=($(".small").height()/2))
+                         {
+                             console.log('both big');
+                             var rx =  Math.round(($(".small").width()/2))*-1;
+                             var ry =  Math.round(($(".small").height()/2))*-1;
+                         }
+                         
+                         else if(my >=($(".small").height()/2) && mx<($(".small").width()/2) )
+                         {
+                              var rx = Math.round(mx/$(".small").width()*native_width )*-1;
+                              
+                         }*/
+
+
+                        var rx = Math.round(mx / $(".zoom").width() * native_width) * -1;
+                        var ry = Math.round(my / $(".zoom").height() * native_height) * -1;
+
+
+
+                        var bgp = rx + "px " + ry + "px";
+
+                        //Time to move the magnifying glass with the mouse
+                        var px = mx - $(".zoom").width() / 2;
+                        var py = my - $(".zoom").height() / 2;
+                        //Now the glass moves with the mouse
+                        //The logic is to deduct half of the glass's width and height from the 
+                        //mouse coordinates to place it with its center at the mouse coordinates
+
+                        //If you hover on the image now, you should see the magnifying glass in action
+                        $(".img2").css({ backgroundPosition: bgp });
+                        console.log('**');
+                    }
+                    else {
+
+                    }
+                }
+            })
+
+            $(".zoom").mouseout(function(){
+                 //console.log($(".img2").attr("src"));
+                        //                        $(".zoom").fadeOut(10);
+                        //../images/products/kurtis/1/3.jpg
+                        // $(".img2").css("width","100%");
+                        //$(".img2").css("height","100%");
+                        $('.img2').css("background-image", "url('../images/products/kurtis/1/1.jpg')");
+                        console.log($('.img2').css("background-image"));
+                         $(".img2").css("background-size","100% 100%");
+                        ////'width:300px;height:300px;border:5px solid yellow;position:relative;background-image:url("../images/products/kurtis/1/1.jpg");background-position:0px 0px;background-repeat:no-repeat'
+                         $(".img2").css("background-repeat","no-repeat");
+                        $(".img2").css("background-position","0px 0px");
+
+                        //style=';position:relative
+                        // $(".img2").attr("src","http://d3gyiijzpk1c44.cloudfront.net/upload/product_photos/base/0/46/201/big2.3066348.1.jpg");
+
+
+    console.log('Yeah !!!');
+});
+            //Now the mousemove function
+            $(".magnify").mousemove(function (e) {
+                //When the user hovers on the image, the script will first calculate
+                //the native dimensions if they don't exist. Only after the native dimensions
+                //are available, the script will show the zoomed version.
+                if (!native_width && !native_height) {
+                    //This will create a new image object with the same image as that in .small
+                    //We cannot directly get the dimensions from .small because of the 
+                    //width specified to 200px in the html. To get the actual dimensions we have
+                    //created this image object.
+                    var image_object = new Image();
+                    image_object.src = $(".small").attr("src");
+
+                    //This code is wrapped in the .load function which is important.
+                    //width and height of the object would return 0 if accessed before 
+                    //the image gets loaded.
+                    native_width = image_object.width;
+                    native_height = image_object.height;
+                }
+                else {
+                    //x/y coordinates of the mouse
+                    //This is the position of .magnify with respect to the document.
+                    var magnify_offset = $(this).offset();
+                    //We will deduct the positions of .magnify from the mouse positions with
+                    //respect to the document to get the mouse positions with respect to the 
+                    //container(.magnify)
+                    var mx = e.pageX - magnify_offset.left;
+                    var my = e.pageY - magnify_offset.top;
+
+                    //Finally the code to fade out the glass if the mouse is outside the container
+                    if (mx < $(this).width() && my < $(this).height() && mx > 0 && my > 0) {
+                        $(".large").fadeIn(10);
+                    }
+                    else {
+                        $(".large").fadeOut(10);
+
+                    }
+                    if ($(".large").is(":visible")) {
+                        //The background position of .large will be changed according to the position
+                        //of the mouse over the .small image. So we will get the ratio of the pixel
+                        //under the mouse pointer with respect to the image and use that to position the 
+                        //large image inside the magnifying glass
+                        /*
+                         if(mx>=($(".small").width()/2) && my >=($(".small").height()/2))
+                         {
+                             console.log('both big');
+                             var rx =  Math.round(($(".small").width()/2))*-1;
+                             var ry =  Math.round(($(".small").height()/2))*-1;
+                         }
+                         
+                         else if(my >=($(".small").height()/2) && mx<($(".small").width()/2) )
+                         {
+                              var rx = Math.round(mx/$(".small").width()*native_width )*-1;
+                              
+                         }*/
+
+
+                        var rx = Math.round(mx / $(".small").width() * native_width) * -1;
+                        var ry = Math.round(my / $(".small").height() * native_height) * -1;
+
+
+
+                        var bgp = rx + "px " + ry + "px";
+
+                        //Time to move the magnifying glass with the mouse
+                        var px = mx - $(".large").width() / 2;
+                        var py = my - $(".large").height() / 2;
+                        //Now the glass moves with the mouse
+                        //The logic is to deduct half of the glass's width and height from the 
+                        //mouse coordinates to place it with its center at the mouse coordinates
+
+                        //If you hover on the image now, you should see the magnifying glass in action
+                        $(".large").css({ backgroundPosition: bgp });
+                    }
+                }
+            })
+        })
+    </script>
+</head>
+
+<body bgcolor='black' style='color:white'>
+
+    <!-- Lets make a simple image magnifier -->
+    <div class="magnify">
+        <!-- This is the magnifying glass which will contain the original/large version -->
+        <div class="large"></div>
+
+
+
+        <!-- This is the small image -->
+        <img class="small" src="../images/products/kurtis/1/1.jpg" width="300px" height="300px" />
+
+
+
+
+
+
+    </div>
+
+    <div class='zoom'>
+        <div class="img2 " style='width:300px;height:300px;border:5px solid yellow;position:relative;background-position:0px 0px;background-repeat:no-repeat'
+            alt='SDF' width="300px" height="300px"></div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+1) Every row need padding, margin 0, so as to avoid horizontal scroll bar.

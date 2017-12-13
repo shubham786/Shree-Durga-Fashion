@@ -1,0 +1,58 @@
+----PHPMailer----
+0:Forgot password(reset password).
+1:First time signing in.
+
+---Payment Status---
+0:no
+1:yes
+---Delivery Status---
+{0:'Ordered',1:'Shipped',2:'Cancelled',3:'Delivered'};
+--------------Sizes Available-----
+S 
+M 
+L 
+XL
+XXL
+XXXL
+36 to 54
+as shown
+----------------abbreveations--------------
+
+lft:left
+rt:right
+ng-model:mdl
+ctnr:container
+apr:apper
+len:length
+cmnt:comment
+comm:common
+cus:customer
+pass:password
+dtl:detail
+obj:object
+lgn:login
+pg:page
+sgn:sign
+btn:button
+lcl:local
+msg:message
+bck:back
+usr:user
+clk:click
+txt:text
+
+------------------------ERROR CODES--------------------
+0:email already in use
+1:successfully sign up for the first time
+200:successfully login
+0:failure(replaced 400)
+2:email & pass do not match
+200:PHPMail sent successfully 
+0:PHPMail can't be sent
+-----------------------------RULES--------------------
+ng-show = *_flag
+for all the error messages = *_err_flag
+ng-click = *_clk()
+static text = $scope.*_txt
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<script src="../../js/angular_1.6.4.js"></script>
+<script src='json.js'></script>
+
+<body>
+
+  <div ng-app="myApp" ng-controller="myCtrl">
+
+    <form ng-submit=''>
+      <input type='text' ng-model='fname' />
+      <button type='submit'>submit</button>
+    </form>
+
+    <p>{{fname}}</p>
+  </div>
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope, $http) {
+      $scope.record = {"record":[{"name":"shubham","email":"shubhamsengar88"}]};
+      //console.log(typeof($scope.record));
+
+      $scope.onSubmit = function () {
+        //console.log('form submit button is pressed');
+        $http({
+          
+        }).then(
+          function success(response) {
+            
+          }
+          ,
+          function error(response) {
+
+          }
+          );
+      }//onSubmit***
+
+
+
+    });
+  </script>
+
+</body>
+
+</html>

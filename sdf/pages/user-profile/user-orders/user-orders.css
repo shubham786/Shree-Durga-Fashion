@@ -1,0 +1,23 @@
+.dOrderDel{
+    border:solid 1px gray;
+    margin-bottom:20px;
+    border-radius: 3px;
+}
+.dHeaderDel{
+    background-color: rgba(128, 128, 128, 0.11);
+    border-bottom: solid 1px rgba(128, 128, 128, 0.116);
+}
+.bbDel{
+    border-bottom: solid 1px rgba(128, 128, 128, 0.137);
+}
+.indvItemOrderDel{
+    border:solid 2px rgba(128, 128, 128, 0.151);
+}
+
+
+.itemBorder{
+    border:solid 4px rgba(212, 206, 206, 0.822);
+}
+.bgClrGray{
+    background-color: rgba(128, 128, 128, 0.226);
+}

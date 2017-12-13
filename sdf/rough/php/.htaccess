@@ -1,0 +1,10 @@
+AddType application/x-httpd-php .htm .html
+
+
+
+# Request routing
+RewriteRule ^([a-zA-Z_-]*)$  rest_01.php?id=$1 [nc,qsa]
+#RewriteEngine on
+
+#Request routing
+#RewriteRule ^([a-zA-Z_-]*)$ rough.php?name=$1 [nc,qsa]

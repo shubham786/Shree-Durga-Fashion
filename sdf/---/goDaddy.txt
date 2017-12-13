@@ -1,0 +1,31 @@
+cust #:160111883
+userName:shubhamsengar88
+pass: 0ss_Glola
+pin:0007
+---====cPanel====---
+pass:dj@89djkJK
+userName:shubhamsengar99
+mehraj
+---====FTP====---
+port:21
+---====db====---
+port:25
+username:ss_shubham
+password:dj@89djkJK
+dl 8sbc9721
+oswal motors a 81
+--db class 4var,port:25.
+
+$this->dbhost='localhost';
+		$this->username='ss_shubham';
+		$this->password='dj@89djkJK';
+		$this->db='ss_sdf';
+comment borders,sm-xsm-md-lg in header.php
+
+syntax:https://148.66.136.7/~shubhamsengar99(cPanelName)/
+166.62.27.182
+db_name:ss_sdf
+
+how for is used in labels
+var x must = []
+angular.copy(someARr,x)
