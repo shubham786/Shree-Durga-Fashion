@@ -285,8 +285,8 @@
 
 
 <hr>
-<!-- 
+
 <h1 class="visible-xs bg-danger">This text is hidden on an EXTRA SMALL screen.</h1>
   <h1 class="visible-sm bg-info">This text is hidden on a SMALL screen.</h1>
   <h1 class="visible-md bg-warning">This is text hidden on a MEDIUM screen.</h1>
-  <h1 class="visible-lg bg-success">This is text hidden on a LARGE screen.</h1>  -->
+  <h1 class="visible-lg bg-success">This is text hidden on a LARGE screen.</h1> 

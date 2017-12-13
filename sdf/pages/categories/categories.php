@@ -8,10 +8,10 @@
 
 			<div class='container'>
 
-				
-				<div class='row'>
+
+				<div class='row '>
 					<!-- filters -->
-					<div class='col-xs-3 ' >
+					<div class='col-xs-3 hidden-xs'>
 						<!-- price -->
 						<div>
 							<div class='row'>Price</div>
@@ -54,23 +54,26 @@
 					<!-- Kurti Display -->
 					<div class='col-xs-9 '>
 
+						<!-- right side filters just above kurtis -->
+						<div class='row hidden-xs'>
 						<div class='row pm0'>
 							<div class='pull-right'>
-									<div class="form-group">
-											<!-- <label for="sel1">Sort By:</label> -->
-											<select class="form-control" ng-model='sortBy' ng-change="sortByFn(sortBy)" id="sel1">
-												<option value='0'>--Sort By--</option>
-											  <option value='1'>Price:Low to High</option>
-											  <option value='2'>Price:High to Low</option>
-											  <option value='3'>Latest Arrivals</option>
-											</select>
-										  </div>
+								<div class="form-group">
+									<!-- <label for="sel1">Sort By:</label> -->
+									<select class="form-control" ng-model='sortBy' ng-change="sortByFn(sortBy)" id="sel1">
+										<option value='0'>--Sort By--</option>
+										<option value='1'>Price:Low to High</option>
+										<option value='2'>Price:High to Low</option>
+										<option value='3'>Latest Arrivals</option>
+									</select>
+								</div>
 							</div>
 
 						</div>
 						<!-- clearAll -->
 						<div class='' style="color:#776CCE;">
-							{{allSelVals}} <b>CLEAR ALL</b>
+							{{allSelVals}}
+							<b>CLEAR ALL</b>
 						</div>
 						<!-- ***clearAll -->
 
@@ -78,34 +81,28 @@
 						<!-- 6 Options -->
 						<div class='row '>
 							<div class='col-xs-2  text-center'>
-								<span class='csr_ptr fntw400' 
-								ng-class="{'bb1': optionsValue == '0'}" ng-click="namePPfn()">Pattern</span>
+								<span class='csr_ptr fntw400' ng-class="{'bb1': optionsValue == '0'}" ng-click="namePPfn()">Pattern</span>
 							</div>
 							<!-- print_pattern -->
 
 							<div class='col-xs-2  text-center'>
-								<span class='csr_ptr fntw400' 
-								ng-class="{'bb1': optionsValue == '1'}" ng-click='namePrintFn()'>Print</span>
+								<span class='csr_ptr fntw400' ng-class="{'bb1': optionsValue == '1'}" ng-click='namePrintFn()'>Print</span>
 							</div>
 
 							<div class='col-xs-2  text-center'>
-								<span ng-class="{'bb1': optionsValue == '2'}"
-								 ng-click="nameSlvLen()" class='csr_ptr fntw400'>Sleeve Length</span>
+								<span ng-class="{'bb1': optionsValue == '2'}" ng-click="nameSlvLen()" class='csr_ptr fntw400'>Sleeve Length</span>
 							</div>
 
 							<div class='col-xs-2  text-center'>
-								<span class='csr_ptr fntw400'
-								 ng-class="{'bb1': optionsValue == '3'}" ng-click="nameNeck()">Neck</span>
+								<span class='csr_ptr fntw400' ng-class="{'bb1': optionsValue == '3'}" ng-click="nameNeck()">Neck</span>
 							</div>
 
 							<div class='col-xs-2  text-center'>
-								<span class='csr_ptr fntw400'
-								 ng-class="{'bb1': optionsValue == '4'}" ng-click='nameFabric()'>Fabric</span>
+								<span class='csr_ptr fntw400' ng-class="{'bb1': optionsValue == '4'}" ng-click='nameFabric()'>Fabric</span>
 							</div>
 
 							<div class='col-xs-2  text-center'>
-								<span class='csr_ptr fntw400'
-								 ng-class="{'bb1': optionsValue == '5'}" ng-click="nameOcc()">Occasion</span>
+								<span class='csr_ptr fntw400' ng-class="{'bb1': optionsValue == '5'}" ng-click="nameOcc()">Occasion</span>
 							</div>
 
 						</div>
@@ -115,10 +112,10 @@
 						<div class='row'>
 
 							<div class='col-xs-2  text-center borderg' ng-show='optionsValue == 0' ng-repeat='value in data.ppArr'>
-									
+
 								<!-- <label> -->
-									<input type="checkbox"  ng-model='hey' ng-click="ppChng( hey,value)">
-									<span style='font-weight:10;color:black;'>{{convertPP(value)}}</span>
+								<input type="checkbox" ng-model='hey' ng-click="ppChng( hey,value)">
+								<span style='font-weight:10;color:black;'>{{convertPP(value)}}</span>
 								<!-- </label> -->
 							</div>
 
@@ -159,6 +156,8 @@
 						</div>
 
 						<!-- ***select options for 6options -->
+
+						</div>
 
 						<div class='row'>
 							<table style='width:100%;'>
