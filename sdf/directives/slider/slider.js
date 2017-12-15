@@ -9,6 +9,26 @@ rootModule.directive('slider', function () {
             var breakInterval = true;
             var imgChangeTimer;
             var imgOpacityTimer;
+            var wWidth = $(window).width();
+            if (wWidth < 768) {
+                console.log('200');
+                alert('settin 200px;');
+                document.getElementById('sliderId').style.height = '400px';
+            } else{
+                console.log('400');
+                document.getElementById('sliderId').style.height = '480px';
+            }
+            $(window).resize(function () {
+            var wWidth = $(window).width();
+            if (wWidth < 768) {
+                console.log('200');
+                document.getElementById('sliderId').style.height = '200px';
+            } else{
+                console.log('400');
+                document.getElementById('sliderId').style.height = '400px';
+            }
+        });
+        
            
             
             imgChangeTimer =  $interval(function () {

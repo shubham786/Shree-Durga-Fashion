@@ -341,13 +341,13 @@ rootModule.controller('c_user_orders', function ($scope,$location, s_http, $http
     
     }
     var moreDtlFlg = false;
-    $scope.moreDetails = function(mIndex,dIndex,oIndex){
+    $scope.moreDetails = function(mIndex,dIndex,oIndex,idk){
         if(moreDtlFlg){
-            $('#dwnArrowDtl'+mIndex+dIndex+oIndex).removeClass('hidden-xs');
+            $('#dwnArrowDtl'+mIndex+dIndex+oIndex+idk).removeClass('hidden-xs');
         }
 
         else if(!moreDtlFlg){
-            $('#dwnArrowDtl'+mIndex+dIndex+oIndex).addClass('hidden-xs');
+            $('#dwnArrowDtl'+mIndex+dIndex+oIndex+idk).addClass('hidden-xs');
         }
             
     moreDtlFlg = !moreDtlFlg;        

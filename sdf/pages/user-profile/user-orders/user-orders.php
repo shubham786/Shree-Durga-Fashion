@@ -72,7 +72,7 @@
                                 <!-- {{order.orders}} -->
                                 <!-- {} -->
                                 <div class=' panel-body' id='itemBody{{dIndex}}{{oIndex}}' style='display:block;'>
-                                    <div class='row     ' ng-show='showOrderItem(indv[6])' ng-repeat="indv in orderArr.orders track by $index">
+                                    <div class='row ' ng-show='showOrderItem(indv[6])' ng-init='idk = $index;' ng-repeat="indv in orderArr.orders track by $index">
                                         <div class=' row  indvItemOrder' style='margin:0;border:solid 1px rgba(212, 206, 206, 0.200);'>
 
                                             <div class='col-sm-12 hidden-xs  pm0'>
@@ -134,10 +134,11 @@
 
 
                                             <div class='col-xs-12 visible-xs hidden-sm-* text-center csr_ptr' style='margin-top:14px;' id='dwnArrow{{mIndex}}{{dIndex}}{{oIndex}}'
-                                                ng-click='moreDetails(mIndex,dIndex,oIndex)'>
+                                                ng-click='moreDetails(mIndex,dIndex,oIndex,idk)'>
+                                                <!-- ng-click='moreDetails(mIndex,dIndex,oIndex)'> -->
                                                 <img ng-src='./sdf/images/website/misc/down-arrow.png' />
                                             </div>
-                                            <div class='col-xs-12 col-sm-6  border hidden-xs visible-sm-* ' id='dwnArrowDtl{{mIndex}}{{dIndex}}{{oIndex}}'>
+                                            <div class='col-xs-12 col-sm-6  border hidden-xs visible-sm-* ' id='dwnArrowDtl{{mIndex}}{{dIndex}}{{oIndex}}{{idk}}'>
 
 
                                                 <li class='lsNone pull-right'>Id.:{{indv[0]}}</li>

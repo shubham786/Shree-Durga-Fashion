@@ -29,6 +29,36 @@ rootModule.config(function ($routeProvider) {
             templateUrl: "./sdf/pages/categories/categories.php",
             //controller: "c_user_profile"
         })
+
+        .when("/static/cancellation-refund-policy",{
+            templateUrl: "./sdf/pages/static/cNrPolicy.php",
+            //controller: "c_user_profile"
+        })
+
+        .when("/static/disclaimer",{
+            templateUrl: "./sdf/pages/static/disclaimer.php",
+            //controller: "c_user_profile"
+        })
+
+        .when("/static/privacy-policy",{
+            templateUrl: "./sdf/pages/static/pPolicy.php",
+            //controller: "c_user_profile"
+        })
+
+        .when("/static/shree-durga-fashion",{
+            templateUrl: "./sdf/pages/static/sdf.php",
+            //controller: "c_user_profile"
+        })
+
+        .when("/static/shipping-delivery-policy",{
+            templateUrl: "./sdf/pages/static/sNdPolicy.php",
+            //controller: "c_user_profile"
+        })
+
+        .when("/static/terms-conditions",{
+            templateUrl: "./sdf/pages/static/tNc.php",
+            //controller: "c_user_profile"
+        })
               
         //Handles forgot pass request.
         .otherwise({

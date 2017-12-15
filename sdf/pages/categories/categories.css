@@ -1,31 +1,46 @@
-.emphasize:hover{
-    box-shadow: 4px 6px 10px #888888;
-    border-radius:10px;
-}    
+    .emphasize:hover{
+        box-shadow: 4px 6px 10px #888888;
+        border-radius:10px;
+    }    
 
-.landingItmName{
-    font-size: 12px;
-    font-weight: 400;
-    color:#a8a3a3;
-}
+    .landingItmName{
+        font-size: 12px;
+        font-weight: 400;
+        color:#a8a3a3;
+    }
 
-.landingItmPrice{
 
-    font-size: 13px;
-    font-weight: 700;
-    color:#908f8f;
-    font-family: Helvetica,Arial,sans-serif;
-}
 
-.fltrHts{
-    height: 100px;
-    overflow-y: scroll;
-    overflow-x:hidden;
-}
-.fntw400{
-    font-weight: 400;
-    color:gray;
-}
-.bb1{
-    border-bottom:solid thick #1ABB99;
-}
+    .landingItmPrice{
+
+        font-size: 13px;
+        font-weight: 700;
+        color:#908f8f;
+        font-family: Helvetica,Arial,sans-serif;
+    }
+    .test{
+        background-color:rgba(128, 128, 128, 0.101);
+    }
+    .ht{
+    line-height:47px;
+    border-bottom:1px solid rgba(128, 128, 128, 0.101);
+    padding-left:8px;
+    
+    }
+    .ht2{
+        line-height: 34px;
+        padding-left:8px;
+        border-bottom:1px solid rgba(128, 128, 128, 0.301);
+    }
+    .fltrHts{
+        height: 100px;
+        overflow-y: scroll;
+        overflow-x:hidden;
+    }
+    .fntw400{
+        font-weight: 400;
+        color:gray;
+    }
+    .bb1{
+        border-bottom:solid thick #1ABB99;
+    }

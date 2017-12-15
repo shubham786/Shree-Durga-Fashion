@@ -1,0 +1,22 @@
+.imgGrayScale{
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    filter:blur(1px);
+    filter:drop-shadow(8px 8px 10px gray);
+    max-width: 100%;
+    
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    position:relative;
+    
+    
+    
+    
+}
+
+.imgGrayScale:hover{
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}

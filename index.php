@@ -9,6 +9,7 @@
 	<title>Shree Durga Fashions</title>
 	<!--CSS-->
 
+
 	<!--common.css-->
 	<link href='./sdf/include/css/common.css' rel='stylesheet'>
 	<link href='./sdf/include/bootstrap-3.3.7-dist/css/bootstrap.css' rel='stylesheet'>
@@ -64,17 +65,19 @@
 
 </head>
 
-<body ng-app='rootModule' ng-controller='c_root'   >
-	
+<body ng-app='rootModule' ng-controller='c_root'>
+
+
+
 	<div style='border:solid 2px rgba(255, 255, 255, 0);min-height:100%;'>
 
-		<div ng-if='header_flg' >
+		<div ng-if='header_flg'>
 			<header></header>
 		</div>
 
 
-		<div style='margin-bottom:100px;' >
-			<div ng-view autoscroll="true" ></div>
+		<div style='margin-bottom:100px;'>
+			<div ng-view autoscroll="true"></div>
 		</div>
 	</div>
 

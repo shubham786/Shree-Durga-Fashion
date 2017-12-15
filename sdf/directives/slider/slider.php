@@ -3,8 +3,8 @@
 <div class='container' style='position:relative;'>
     <div class='row fill  pm0'>
 
-        <div class=' col-xs-10 col-xs-offset-1 '  style='height:480px;position:relative;'>
-            <div class='  test pm0' id='hh' style='height:477px;
+        <div class=' col-xs-12 col-sm-10 col-sm-offset-1' id='sliderId'  style='height:100%;position:relative;'>
+            <div class='  test pm0' id='hh' style='height:100%;
                             border:solid 2px lightgray;
                          background-image:url("./sdf/images/website/slider/{{sliderImgNo}}.jpg");
                          background-size:100% 100%;

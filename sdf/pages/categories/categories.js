@@ -6,6 +6,7 @@ rootModule.controller('c_categories', function ($scope, $location, s_http, $http
     $scope.data;
     $scope.allSelVals = '';
     $scope.sortBy = '0';
+    $scope.showXsFilterScreenFlg = false;
     var kdOriginal = [];
     login_dtl = { "operation": "kurti_display" };
     var user_lgn_in_dtl_obj = JSON.stringify(login_dtl);
@@ -18,25 +19,46 @@ rootModule.controller('c_categories', function ($scope, $location, s_http, $http
     var neckArr = []
     var fabricArr = [];
     var occArr = [];
-    console.log('-->>',mp_printPattern);
+    $scope.priceCheckBox = [];
+    $scope.sizeCheckBox = [];
+    $scope.ppCheckBox = [];
+    $scope.pCheckBox = [];
+    $scope.sleeveCheckBox = [];
+    $scope.neckCheckBox = [];
+    $scope.fabricCheckBox = [];
+    $scope.occCheckBox = [];
+    $scope.filterSortByRowFlg = true;
     $scope.usr_mp_printPattern = mp_printPattern;
 
 
     $scope.optionsValue;
+    $scope.showXsOptions;
+    //bool
+    $scope.showXsFilterScreenFlg = false;
 
-    $(window).resize(function() {
-        var wWidth =  $(window).width();
-        if(wWidth <768){
-            console.log('hi');  
-            document.getElementById('strech').style.width='100%';
-        }else{
-            document.getElementById('strech').style.width='';
+    $scope.showXsPriceOptFlg = false;
+    $scope.showXsSizeOptFlg = false;
+    var wWidth = $(window).width();
+    if (wWidth < 768) {
+        console.log('hi');
+        document.getElementById('strech').style.width = '100%';
+    } else {
+        document.getElementById('strech').style.width = '';
+    }
+
+    $(window).resize(function () {
+        var wWidth = $(window).width();
+        if (wWidth < 768) {
+            console.log('hi');
+            document.getElementById('strech').style.width = '100%';
+        } else {
+            document.getElementById('strech').style.width = '';
         }
-      });
+    });
 
     s_http.s_http_fun(user_lgn_in_dtl_obj, function (resp) {
         console.log('resp.data.data', resp.data.data);
-//        $rootScope.kurti_display = resp.data.data;
+        //        $rootScope.kurti_display = resp.data.data;
         $scope.rootBasket = resp.data.data;
         $scope.kurti_display = $scope.rootBasket;//.slice(0, $scope.initLoad);
         angular.copy($scope.kurti_display, kdOriginal);
@@ -73,35 +95,36 @@ rootModule.controller('c_categories', function ($scope, $location, s_http, $http
         console.log('neckArr--', neckArr);
         console.log('sleeveArr--', sleeveArr); */
         $scope.allSelVals = '';
-        for(var i in priceArrs){
-            $scope.allSelVals += (priceArrs[i] +'  ');
+        for (var i in priceArrs) {
+            $scope.allSelVals += (priceArrs[i] + '  ');
         }
-        for(var i in sizeArrs){
-            $scope.allSelVals += (sizeArrs[i] +'  ');
+        for (var i in sizeArrs) {
+            $scope.allSelVals += (sizeArrs[i] + '  ');
         }
-        for(var i in ppArr){
-            $scope.allSelVals += (ppArr[i] +'  ');
+        for (var i in ppArr) {
+            $scope.allSelVals += (ppArr[i] + '  ');
         }
-        for(var i in pArr){
-            $scope.allSelVals += (pArr[i] +'  ');
+        for (var i in pArr) {
+            $scope.allSelVals += (pArr[i] + '  ');
         }
-        for(var i in neckArr){
-            $scope.allSelVals += (neckArr[i] +'  ');
+        for (var i in neckArr) {
+            $scope.allSelVals += (neckArr[i] + '  ');
         }
-        for(var i in fabricArr){
-            $scope.allSelVals += (fabricArr[i] +'  ');
+        for (var i in fabricArr) {
+            $scope.allSelVals += (fabricArr[i] + '  ');
         }
-        for(var i in sleeveArr){
-            $scope.allSelVals += (sleeveArr[i] +'  ');
+        for (var i in sleeveArr) {
+            $scope.allSelVals += (sleeveArr[i] + '  ');
         }
-        for(var i in occArr){
-            $scope.allSelVals += (occArr[i] +'  ');
+        for (var i in occArr) {
+            $scope.allSelVals += (occArr[i] + '  ');
         }
 
     }
 
 
     $scope.priceChng = function (isChk, lwrLimit) {
+        console.log('-->',isChk);
         if (isChk) {
             priceArrs.push(lwrLimit);
         }
@@ -152,7 +175,7 @@ rootModule.controller('c_categories', function ($scope, $location, s_http, $http
             neckRange().
             fabricRange().
             occRange().
-           // sizeRange().
+            // sizeRange().
             updateArrays().
             returnVal();
 
@@ -177,7 +200,7 @@ rootModule.controller('c_categories', function ($scope, $location, s_http, $http
             sleeveRange().
             neckRange().
             fabricRange().
-           // ppRange().
+            // ppRange().
             occRange().
             updateArrays().
             returnVal();
@@ -208,7 +231,7 @@ rootModule.controller('c_categories', function ($scope, $location, s_http, $http
             neckRange().
             fabricRange().
             occRange().
-           // pRange().
+            // pRange().
             updateArrays().
             returnVal();
 
@@ -235,7 +258,7 @@ rootModule.controller('c_categories', function ($scope, $location, s_http, $http
             pRange().
             neckRange().
             fabricRange().
-           // sleeveRange().
+            // sleeveRange().
             occRange().
             updateArrays().
             returnVal();
@@ -264,7 +287,7 @@ rootModule.controller('c_categories', function ($scope, $location, s_http, $http
             sleeveRange().
             fabricRange().
             occRange().
-           // neckRange().
+            // neckRange().
             updateArrays().
             returnVal();
 
@@ -321,7 +344,7 @@ rootModule.controller('c_categories', function ($scope, $location, s_http, $http
             pRange().
             sleeveRange().
             neckRange().
-           // occRange().
+            // occRange().
             fabricRange().
             updateArrays().
             returnVal();
@@ -329,7 +352,7 @@ rootModule.controller('c_categories', function ($scope, $location, s_http, $http
         updateArrs();
 
     }
-    
+
 
     $scope.namePPfn = function () {
         //function for print pattern
@@ -384,85 +407,174 @@ rootModule.controller('c_categories', function ($scope, $location, s_http, $http
         }
     }
 
-    $scope.sortByFn = function(value){
-        
-        if(value == '1'){
-            $scope.data.kurti_display.sort(function(a,b) {
+    $scope.sortByFn = function (value) {
+
+        if (value == '1') {
+            $scope.data.kurti_display.sort(function (a, b) {
                 return a.prices[0] - b.prices[0];
             });
         }
 
-        else if(value == '2'){
-            $scope.data.kurti_display.sort(function(a,b) {
+        else if (value == '2') {
+            $scope.data.kurti_display.sort(function (a, b) {
                 return b.prices[0] - a.prices[0];
             });
         }
 
-        else if(value == '3'){
-            $scope.data.kurti_display.sort(function(a,b) {
-                return ( new Date(b.entry_date) - new Date(a.entry_date) );
+        else if (value == '3') {
+            $scope.data.kurti_display.sort(function (a, b) {
+                return (new Date(b.entry_date) - new Date(a.entry_date));
             });
         }
 
     }
-   
 
-    $scope.convertPP = function(id){
-        for(var i in mp_printPattern){
-            if(mp_printPattern[i].id == id){
+
+    $scope.convertPP = function (id) {
+        for (var i in mp_printPattern) {
+            if (mp_printPattern[i].id == id) {
                 return mp_printPattern[i].value;
                 break;
             }
         }
     }
 
-    $scope.convertP = function(id){
-        for(var i in mp_pattern){
-            if(mp_pattern[i].id == id){
+    $scope.convertP = function (id) {
+        for (var i in mp_pattern) {
+            if (mp_pattern[i].id == id) {
                 return mp_pattern[i].value;
                 break;
             }
         }
     }
 
-    $scope.convertSleeve = function(id){
-        for(var i in mp_sleeve){
-            if(mp_sleeve[i].id == id){
+    $scope.convertSleeve = function (id) {
+        for (var i in mp_sleeve) {
+            if (mp_sleeve[i].id == id) {
                 return mp_sleeve[i].value;
                 break;
             }
         }
     }
 
-    $scope.convertNeck = function(id){
-        for(var i in mp_neck){
-            if(mp_neck[i].id == id){
+    $scope.convertNeck = function (id) {
+        for (var i in mp_neck) {
+            if (mp_neck[i].id == id) {
                 return mp_neck[i].value;
                 break;
             }
         }
     }
 
-    $scope.convertFabric = function(id){
-        for(var i in mp_fabric){
-            if(mp_fabric[i].id == id){
+    $scope.convertFabric = function (id) {
+        for (var i in mp_fabric) {
+            if (mp_fabric[i].id == id) {
                 return mp_fabric[i].value;
                 break;
             }
         }
     }
 
-    $scope.convertOcc = function(id){
-        for(var i in mp_occasion){
-            if(mp_occasion[i].id == id){
+    $scope.convertOcc = function (id) {
+        for (var i in mp_occasion) {
+            if (mp_occasion[i].id == id) {
                 return mp_occasion[i].value;
                 break;
             }
         }
     }
 
+    $scope.showXsPrice = function () {
+        $scope.showXsOptions = 0;
+    }
+
+    $scope.showXsSize = function () {
+        $scope.showXsOptions = 1;
+        console.log('size', $scope.showXsOptions);
+
+    }
+
+    $scope.showXsPP = function () {
+        $scope.showXsOptions = 2;
+    }
+    $scope.showXsP = function () {
+        $scope.showXsOptions = 3;
+    }
+
+    $scope.showXsSleeve = function () {
+        $scope.showXsOptions = 4;
+    }
+    $scope.showXsNeck = function () {
+        $scope.showXsOptions = 5;
+    }
+
+    $scope.showXsFabric = function () {
+        $scope.showXsOptions = 6;
+    }
+
+    $scope.showXsOcc = function () {
+        console.log('---');
+        $scope.showXsOptions = 7;
+    }
+
+    $scope.xSClearAll = function(){
+        $scope.data = landingFilter.register($scope.kurti_display).parentFilter([], [], [], [], [], [], [], []).
+        priceRange().
+        sizeRange().
+        ppRange().
+        pRange().
+        sleeveRange().
+        neckRange().
+        fabricRange().
+        occRange().
+        returnVal();
+
+        updateArrs();
+        $scope.priceCheckBox = [];
+        $scope.sizeCheckBox = [];
+        $scope.ppCheckBox = [];
+        $scope.pCheckBox = [];
+        $scope.sleeveCheckBox = [];
+        $scope.neckCheckBox = [];
+        $scope.fabricCheckBox = [];
+        $scope.occCheckBox = [];
+
+        $scope.closeXsFilterScreen();
+
+    }
+    $(window).scroll(function (event) {
+        var scroll = $(window).scrollTop();
+        if(document.getElementById('filterSortByRow')!= null){
+        if(scroll>=200){
+            document.getElementById('filterSortByRow').style.position='fixed';
+            document.getElementById('filterSortByRow').style.top='0';
+            document.getElementById('filterSortByRow').style.right='0';
+            document.getElementById('filterSortByRow').style.zIndex='1000';
+            document.getElementById('filterSortByRow').style.width='100%';
+        }
+        else{
+            document.getElementById('filterSortByRow').style.position='initial';
+        }
+    }
+        // Do something
+    });
+    
+
+    $scope.xsFilterScreen = function () {
+        $scope.showXsFilterScreenFlg = true;
+        $scope.showXsPrice();
+        $('body').css('overflow-y','hidden');
+        $scope.filterSortByRowFlg = false;
+        //document.getElementById('filterSortByRow').style.display = 'none';
+    }
 
 
+    $scope.closeXsFilterScreen = function () {
+        $scope.showXsFilterScreenFlg = false;
+        $scope.filterSortByRowFlg = true;
+        $('body').css('overflow-y','auto');
+
+    }
 
 
 
@@ -470,6 +582,12 @@ rootModule.controller('c_categories', function ($scope, $location, s_http, $http
     $scope.loadMore = function () {
         $scope.initLoad += 2;
         $scope.kurti_display = $scope.rootBasket.slice(0, $scope.initLoad);
+    }
+
+    $scope.clearAllClk = function(){
+        console.log('hi');
+        console.log('-->>>',$scope.priceCheckBox);
+        $scope.priceCheckBox = [];
     }
 
 
